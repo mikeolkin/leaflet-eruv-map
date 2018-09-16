@@ -6,4 +6,4 @@ This is a <a target="blank" href="https://leafletjs.com/">leaflet</a> map that I
   <li><a target="blank" href="https://github.com/stefanocudini/leaflet-search">Leaflet-Search</a> - for geocoding</li>
   </ul>
 
-The map can currently be previewed <a target="blank" href="https://mikeolkin.github.io/leaflet-eruv-map/Eruv.htm">here</a>.
+The map can currently be viewed <a target="blank" href="https://mikeolkin.github.io/leaflet-eruv-map/Eruv.htm">here</a>.
