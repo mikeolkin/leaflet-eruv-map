@@ -4,6 +4,6 @@ This is a <a target="blank" href="https://leafletjs.com/">leaflet</a> map that I
 
 Here's the current version of the map:
 <br/><br/>
-<iframe src="Eruv.htm" 
+<code><iframe src="Eruv.htm" 
 style="height:600px; width:450px; border: 1px gray solid; scrolling: no;">
-</iframe>
+</iframe></code>
