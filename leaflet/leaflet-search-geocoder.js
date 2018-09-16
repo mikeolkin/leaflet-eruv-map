@@ -28,7 +28,7 @@ L.Control.Search.include({
 	},*/
 	geocoders: {
 /*		'google': {
-			url: "//maps.googleapis.com/maps/api/geocode/json?key={key}&address={text}"
+			url: "https://maps.googleapis.com/maps/api/geocode/json?key={key}&address={text}"
 		},
 		'nominatim': {
 			    
@@ -37,7 +37,7 @@ L.Control.Search.include({
 	      q: query,
 	    });
 
-    		"//nominatim.openstreetmap.org/search?"
+    		"https://nominatim.openstreetmap.org/search?"
 		}*/
 	}
 });
