@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<title>Eruv</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="leaflet/leaflet.css"/>
+<script src="leaflet/leaflet.js"></script>
+<script src='leaflet/leaflet-omnivore.min.js'></script>
+<script src="leaflet/leaflet-search.js"></script>
+<link rel="stylesheet" href="leaflet/leaflet-search.css">
+
+<style>
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    width: 100vw;
+}
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+</head>
+<body>
+
+
+<div id="mapid" style="width: 100%; height: 100%; position: relative; background-color: #ffffff;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"></div>
+
+<script>
+
+
+
+var mymap = L.map('mapid');
+
+var CartoDB_Positron = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: '&copy; Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+	subdomains: 'abcd',
+	maxZoom: 19,
+	minZoom: 9
+});
+CartoDB_Positron.addTo(mymap);
+
+var customLayer = L.geoJson(null, {
+    // http://leafletjs.com/reference.html#geojson-style
+    style: function(feature) {
+        return { color: 'purple' };
+    }
+});
+
+var polygon = omnivore.kml('EruvBounds.kml', null, customLayer);
+polygon.addTo(mymap);
+
+var davidIcon = L.icon({
+    iconUrl: 'images/16px-Star_of_David.svg.png',
+
+    iconSize:     [16, 18], // size of the icon
+    iconAnchor:   [8, 9], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
+});
+
+var fp = L.marker([42.083675, -72.572538], {icon: davidIcon});
+fp.addTo(mymap);
+fp.bindPopup('<b><a target=blank href="http://www.bnaitorahma.org/">Bnai Torah, Forest Park Minyan</b></a><br>Shabbat and Yom Tov<br>124 Sumner Ave, Springfield, MA');
+
+var bt = L.marker([42.068128, -72.558587], {icon: davidIcon});
+bt.addTo(mymap);
+bt.bindPopup('<b><a target=blank href="http://www.bnaitorahma.org/">Bnai Torah</b></a><br>Weekdays, Shabbat and Yom Tov<br>1 Eunice Dr, Longmeadow, MA');
+
+polygon.on('ready', function() {
+	
+var group = new L.featureGroup([polygon,fp,bt]);
+
+mymap.fitBounds(group.getBounds(), { padding: [8, 8] });
+
+	
+        // After the 'ready' event fires, the GeoJSON contents are accessible
+        // and you can iterate through layers to bind custom popups.
+
+        polygon.eachLayer(function(layer) {
+            // dataset has a property called `name`: your dataset might not,
+            layer.bindPopup('Eruv Boundary: ' + layer.feature.properties.name);
+        });
+});
+
+
+
+	mymap.addControl( new L.Control.Search({
+		url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+		jsonpParam: 'json_callback',
+		propertyName: 'display_name',
+		propertyLoc: ['lat','lon'],
+		marker: L.circleMarker([0,0],{radius:14}),
+		autoCollapse: true,
+		autoType: false,
+		minLength: 4
+	}) );
+
+</script>
+
+</body>
+</html>
