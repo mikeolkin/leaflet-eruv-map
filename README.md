@@ -7,3 +7,9 @@ This is a <a target="blank" href="https://leafletjs.com/">leaflet</a> map of my 
   </ul>
 
 The map can currently be viewed <a target="blank" href="https://mikeolkin.github.io/leaflet-eruv-map/Eruv.htm">here</a>.
+
+The following alternate example pages are provided in this repository as well:
+<ul>
+  <li><a target="blank" href="https://mikeolkin.github.io/leaflet-eruv-map/EruvOrtho.htm">Eruv Map with Orthophoto Background</a> - example of the eruv map with a different basemap.</li>
+  <li><a target="blank" href="https://mikeolkin.github.io/leaflet-eruv-map/EruvIframe.htm">Inline Frame Eruv Map</a> - example of the eruv map embedded in an inline frame.</li>
+</ul>
