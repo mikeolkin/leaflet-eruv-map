@@ -95,7 +95,7 @@ mymap.fitBounds(group.getBounds(), { padding: [8, 8] });
 
 
 	mymap.addControl( new L.Control.Search({
-		url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+		url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}&addressdetails=1&viewbox=-72.643318%2c42.014101%2c-72.407799%2c42.203599&bounded=1',
 		jsonpParam: 'json_callback',
 		propertyName: 'display_name',
 		propertyLoc: ['lat','lon'],
