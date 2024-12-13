@@ -60,6 +60,14 @@ var davidIcon = L.icon({
     popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
 });
 
+var jccIcon = L.icon({
+    iconUrl: 'images/jcc.png',
+
+    iconSize:     [16, 16], // size of the icon
+    iconAnchor:   [8, 8], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
+});
+	
 var fp = L.marker([42.083675, -72.572538], {icon: davidIcon});
 fp.addTo(mymap);
 fp.bindPopup('<b><a target=blank href="https://www.bnaitorahma.org/">Bnai Torah, Forest Park Minyan</b></a><br>Shabbat and Yom Tov<br>124 Sumner Ave, Springfield, MA');
@@ -80,7 +88,7 @@ var ts = L.marker([42.069987, -72.555433], {icon: davidIcon});
 ts.addTo(mymap);
 ts.bindPopup('<b><a target=blank href="https://sinaitemple.shulcloud.com/">Temple Sinai</b></a><br>Weekdays, Shabbat and Yom Tov<br>1100 Dickinson St, Springfield, MA');
 
-var jcc = L.marker([42.067616, -72.556149], {icon: davidIcon});
+var jcc = L.marker([42.067616, -72.556149], {icon: jccIcon});
 jcc.addTo(mymap);
 jcc.bindPopup('<b><a target=blank href="https://www.springfieldjcc.org/">Springfield JCC</b></a><br>1160 Dickinson St, Springfield, MA');
 
